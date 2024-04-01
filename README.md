@@ -1,1 +1,1 @@
-# stripe-invoice-generator-app
+# Stripe invoice generator App
