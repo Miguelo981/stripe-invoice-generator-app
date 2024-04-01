@@ -1,18 +1,21 @@
 ---
 import InvoiceForm from "@/components/InvoiceForm.astro";
+
+import "@/style.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body class="grid justify-items-center items-center h-screen">
-		<div class="border rounded-lg p-10">
-			<InvoiceForm />
-		</div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro</title>
+  </head>
+  <body class="grid justify-items-center items-center h-screen bg-gray-50">
+    <div class="border rounded-lg p-8 bg-white max-w-3xl w-full">
+      <InvoiceForm
+        className="flex flex-col md:flex-row gap-8 divide-y md:divide-y-0 md:divide-x"
+      />
+    </div>
+  </body>
 </html>
