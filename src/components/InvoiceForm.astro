@@ -1,0 +1,39 @@
+<form action="">
+    <input id="invoice-id" type="text">
+    <input id="stripe-token" type="password">
+    <button id="generator-btn" type="button">Generate</button>
+</form>
+
+<script>
+    import html2pdf from 'html2pdf.js'
+    import { generateInvoice } from '../serivces/invoice.ts'
+
+    const btn = document.getElementById('generator-btn');
+    const idInput: HTMLInputElement | null = document.querySelector('#invoice-id')
+    const tokenInput: HTMLInputElement | null =document.querySelector('#stripe-token')
+
+    const handleGenerate = async () => {
+        const id = idInput?.value;
+        const token = tokenInput?.value;
+
+        if (!id || !token) {
+            return;
+        }
+
+        const text = await generateInvoice({
+            siteData: {
+                title: "SaaSlidator",
+                description: "",
+                image: ""
+            },
+            config: {
+                fromEmail: "",
+            },
+            id,
+        }, token);
+
+        html2pdf().from(text).save('invoice.pdf');
+    }
+
+    btn?.addEventListener('click', handleGenerate);
+</script>
