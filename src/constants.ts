@@ -1,0 +1,1 @@
+export const BACKEND_HOST = import.meta.env.PUBLIC_BACKEND_HOST
