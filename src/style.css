@@ -1,0 +1,11 @@
+@tailwind components;
+ 
+@layer components {
+    input, textarea {
+        @apply p-3 border rounded-lg focus:outline-indigo-500
+    }
+ 
+    button.primary {
+        @apply py-2 px-4 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg
+    }
+}
