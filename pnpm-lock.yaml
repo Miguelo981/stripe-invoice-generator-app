@@ -17,10 +17,16 @@ dependencies:
   '@lesjoursfr/html-to-pdf':
     specifier: ^3.1.5
     version: 3.1.5
+  '@nanostores/persistent':
+    specifier: ^0.10.1
+    version: 0.10.1(nanostores@0.10.1)
   astro:
     specifier: ^4.5.12
     version: 4.5.12(typescript@5.4.3)
   html2pdf.js:
+    specifier: ^0.10.1
+    version: 0.10.1
+  nanostores:
     specifier: ^0.10.1
     version: 0.10.1
   tailwindcss:
@@ -905,6 +911,15 @@ packages:
       yargs: 17.7.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@nanostores/persistent@0.10.1(nanostores@0.10.1):
+    resolution: {integrity: sha512-BMYj47ONmkrPkHfomimtBAwtDNNjO57lw0uk7jB35GHVwixmqWtlK6DVAAbioqwJn9WEaWSB/9Ss5ukBG0NHlQ==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0 || ^0.10.0
+    dependencies:
+      nanostores: 0.10.1
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
@@ -2302,6 +2317,7 @@ packages:
 
   /function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
+    requiresBuild: true
     dev: false
 
   /gensync@1.0.0-beta.2:
@@ -3417,6 +3433,11 @@ packages:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+    dev: false
+
+  /nanostores@0.10.1:
+    resolution: {integrity: sha512-ehojEKwlu5sLAPbPV2um5ihjU/xW4I/yA7qdv0NFmG32fSmLUgYvUmNT1bcobDA5X/fcUqa4t8YbZgN5qARINQ==}
+    engines: {node: ^18.0.0 || >=20.0.0}
     dev: false
 
   /napi-build-utils@1.0.2:
