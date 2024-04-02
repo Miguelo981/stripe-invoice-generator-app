@@ -1,10 +1,11 @@
-interface SiteData {
+export interface SiteData {
     title: string;
     description: string;
     image: string;
 }
 
-interface SiteConfig {
+export interface SiteConfig {
+    fiscalData: string;
     fromEmail: string;
 }
 
