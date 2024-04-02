@@ -18,3 +18,44 @@
     <label for="invoice-logo">Logo</label>
     <input id="invoice-logo" name="invoice-logo" type="file" accept="image/*">
 </div>
+
+<script>
+    import { siteData } from '@/stores/site-data.store.ts';
+    import { siteConfig } from '@/stores/config.store';
+
+    const title = document.getElementById("invoice-title");
+    const description = document.getElementById("invoice-description");
+    const contact = document.getElementById("contact");
+
+    title?.addEventListener("input", (e) => {
+        const { value } = e.target! as HTMLInputElement;
+
+        siteData.set({
+            ...siteData.get(),
+            title: value
+        });
+    });
+
+    description?.addEventListener("input", (e) => {
+        const { value } = e.target! as HTMLInputElement;
+
+
+        siteData.set({
+            ...siteData.get(),
+            description: value
+        });
+    });
+
+    contact?.addEventListener("input", (e) => {
+        const { value } = e.target! as HTMLInputElement;
+
+        siteConfig.set({
+            ...siteConfig.get(),
+            fromEmail: value
+        });
+    });
+
+    title?.setAttribute('value', siteData.get().title);
+    description!.innerHTML = siteData.get().description;
+    contact?.setAttribute('value', siteConfig.get().fromEmail);
+</script>
