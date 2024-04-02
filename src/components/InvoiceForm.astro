@@ -86,19 +86,19 @@ const { className } = Astro.props;
 import { stripe } from "@/stores/stripe.store";
 import { siteConfig } from "@/stores/config.store";
 
-  const title = document.getElementById("invoice-title");
-  const description = document.getElementById("invoice-description");
-  const logo = document.getElementById("invoice-logo");
-  const contact = document.getElementById("contact");
-  const fiscalData = document.getElementById("fiscal-data");
+  const title: HTMLInputElement | null = document.querySelector("#invoice-title");
+  const description: HTMLTextAreaElement | null = document.querySelector("#invoice-description");
+  const logo = document.querySelector("#invoice-logo");
+  const contact: HTMLInputElement | null = document.querySelector("#contact");
+  const fiscalData = document.querySelector("#fiscal-data");
 
-  const btn = document.getElementById("generator-btn");
+  const btn = document.querySelector("#generator-btn");
   const idInput: HTMLInputElement | null =
     document.querySelector("#invoice-id");
   const tokenInput: HTMLInputElement | null =
     document.querySelector("#stripe-token");
 
-  const toggleVisibilyBtn = document.getElementById("toggle-visibility");
+  const toggleVisibilyBtn = document.querySelector("#toggle-visibility");
   const openEye = document.querySelector("#open-eye") as SVGElement;
   const closedEye = document.querySelector("#closed-eye") as SVGElement;
 
@@ -112,17 +112,15 @@ import { siteConfig } from "@/stores/config.store";
       return;
     }
 
-    const bufferedLogo = logo?.getAttribute("src");
-
     const text = await generateInvoice(
       {
         siteData: {
-          title: title?.textContent || "",
+          title: title?.value || "",
           description: description?.textContent || "",
           image: bufferedLogo || "",
         },
         config: {
-          fromEmail: contact?.textContent || "",
+          fromEmail: contact?.value || "",
           fiscalData: fiscalData?.textContent || "",
         },
         id,
@@ -191,4 +189,5 @@ import { siteConfig } from "@/stores/config.store";
 
   tokenInput?.setAttribute("value", stripe.get().token);
   fiscalData!.innerHTML = siteConfig.get().fiscalData;
+  bufferedLogo = siteData.get().image;
 </script>
